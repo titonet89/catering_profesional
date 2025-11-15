@@ -1049,7 +1049,7 @@ section {
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 .contacto-section {
-    background-color: var(--color-dark-800);
+    background: linear-gradient(135deg, var(--color-dark-800) 0%, var(--color-dark-900) 100%);
 }
 
 .contacto-grid {
@@ -1059,10 +1059,17 @@ section {
 }
 
 .contacto-info {
-    background-color: var(--color-dark-900);
+    background: linear-gradient(135deg, var(--color-dark-900) 0%, #1a1a1a 100%);
     padding: var(--space-lg);
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(201, 162, 39, 0.1);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(201, 162, 39, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: all var(--transition-slow);
+}
+
+.contacto-info:hover {
+    border-color: rgba(201, 162, 39, 0.3);
+    box-shadow: 0 12px 40px rgba(201, 162, 39, 0.15);
 }
 
 .info-item {
@@ -1116,23 +1123,37 @@ section {
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
+    background: linear-gradient(135deg, var(--color-dark-900) 0%, #1a1a1a 100%);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(201, 162, 39, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .contacto-form h3 {
     margin-bottom: var(--space-lg);
+    color: var(--color-gold);
+    font-size: 1.3rem;
 }
 
 .contacto-form input,
 .contacto-form select,
 .contacto-form textarea {
-    padding: var(--space-sm);
-    background-color: var(--color-dark-900);
+    padding: 0.85rem;
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(201, 162, 39, 0.2);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     color: var(--color-white);
     font-family: inherit;
     font-size: 1rem;
     transition: all var(--transition-base);
+    backdrop-filter: blur(10px);
+}
+
+.contacto-form input::placeholder,
+.contacto-form select::placeholder,
+.contacto-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .contacto-form input:focus,
@@ -1140,7 +1161,8 @@ section {
 .contacto-form textarea:focus {
     outline: none;
     border-color: var(--color-gold);
-    box-shadow: 0 0 10px rgba(201, 162, 39, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(201, 162, 39, 0.3);
 }
 
 .contacto-form textarea {
