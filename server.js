@@ -166,14 +166,14 @@ app.get('/api/galeria', (req, res) => {
 
   // Datos de ejemplo - en producción vendría de MongoDB
   const galeria = [
-    { id: 1, titulo: 'Boda Elegante', url: '/images/bodas1.jpg', categoria: 'bodas', tipo: 'foto' },
-    { id: 2, titulo: 'Ceremonia Especial', url: '/images/bodas2.jpg', categoria: 'bodas', tipo: 'foto' },
-    { id: 3, titulo: 'Fiesta de Casamiento', url: '/images/bodas3.jpg', categoria: 'bodas', tipo: 'foto' },
-    { id: 4, titulo: 'Evento Corporativo 1', url: '/images/corporativo1.jpg', categoria: 'corporativo', tipo: 'foto' },
-    { id: 5, titulo: 'Evento Corporativo 2', url: '/images/corporativo2.jpg', categoria: 'corporativo', tipo: 'foto' },
-    { id: 6, titulo: 'Cumpleaños 1', url: '/images/cumpleanos1.jpg', categoria: 'cumpleanos', tipo: 'foto' },
-    { id: 7, titulo: 'Cumpleaños 2', url: '/images/cumpleanos2.jpg', categoria: 'cumpleanos', tipo: 'foto' },
-    { id: 8, titulo: 'Video de Boda', url: '/videos/muestra1.mp4', categoria: 'bodas', tipo: 'video' }
+    { id: 1, titulo: 'Boda Elegante', url: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop', categoria: 'bodas', tipo: 'foto' },
+    { id: 2, titulo: 'Ceremonia Especial', url: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=400&h=300&fit=crop', categoria: 'bodas', tipo: 'foto' },
+    { id: 3, titulo: 'Fiesta de Casamiento', url: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=300&fit=crop', categoria: 'bodas', tipo: 'foto' },
+    { id: 4, titulo: 'Evento Corporativo 1', url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop', categoria: 'corporativo', tipo: 'foto' },
+    { id: 5, titulo: 'Evento Corporativo 2', url: 'https://images.unsplash.com/photo-1540575467063-178f50002cce?w=400&h=300&fit=crop', categoria: 'corporativo', tipo: 'foto' },
+    { id: 6, titulo: 'Cumpleaños 1', url: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400&h=300&fit=crop', categoria: 'cumpleanos', tipo: 'foto' },
+    { id: 7, titulo: 'Cumpleaños 2', url: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop', categoria: 'cumpleanos', tipo: 'foto' },
+    { id: 8, titulo: 'Fiesta Especial', url: 'https://images.unsplash.com/photo-1510578406352-481852e94b03?w=400&h=300&fit=crop', categoria: 'bodas', tipo: 'foto' }
   ];
 
   let resultado = galeria;
