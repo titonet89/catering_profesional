@@ -6,7 +6,9 @@
       "Bash(taskkill:*)",
       "Bash(powershell \"Stop-Process -Id 19608 -Force\")",
       "Bash(dir:*)",
-      "Bash(powershell \"Get-ChildItem -Recurse | Select-Object FullName | head -50\")"
+      "Bash(powershell \"Get-ChildItem -Recurse | Select-Object FullName | head -50\")",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []

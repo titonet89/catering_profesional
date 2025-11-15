@@ -169,11 +169,18 @@ app.get('/api/galeria', (req, res) => {
     { id: 1, titulo: 'Boda Elegante', url: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop', categoria: 'bodas', tipo: 'foto' },
     { id: 2, titulo: 'Ceremonia Especial', url: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=400&h=300&fit=crop', categoria: 'bodas', tipo: 'foto' },
     { id: 3, titulo: 'Fiesta de Casamiento', url: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=300&fit=crop', categoria: 'bodas', tipo: 'foto' },
-    { id: 4, titulo: 'Evento Corporativo 1', url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop', categoria: 'corporativo', tipo: 'foto' },
-    { id: 5, titulo: 'Evento Corporativo 2', url: 'https://images.unsplash.com/photo-1540575467063-178f50002cce?w=400&h=300&fit=crop', categoria: 'corporativo', tipo: 'foto' },
-    { id: 6, titulo: 'Cumpleaños 1', url: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400&h=300&fit=crop', categoria: 'cumpleanos', tipo: 'foto' },
-    { id: 7, titulo: 'Cumpleaños 2', url: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop', categoria: 'cumpleanos', tipo: 'foto' },
-    { id: 8, titulo: 'Fiesta Especial', url: 'https://images.unsplash.com/photo-1510578406352-481852e94b03?w=400&h=300&fit=crop', categoria: 'bodas', tipo: 'foto' }
+    { id: 4, titulo: 'Brindis Nupcial', url: 'https://images.unsplash.com/photo-1530519387789-4c1017266635?w=400&h=300&fit=crop', categoria: 'bodas', tipo: 'foto' },
+    { id: 5, titulo: 'Decoración Floral', url: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=400&h=300&fit=crop', categoria: 'bodas', tipo: 'foto' },
+    { id: 6, titulo: 'Evento Corporativo 1', url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop', categoria: 'corporativo', tipo: 'foto' },
+    { id: 7, titulo: 'Evento Corporativo 2', url: 'https://images.unsplash.com/photo-1540575467063-178f50002cce?w=400&h=300&fit=crop', categoria: 'corporativo', tipo: 'foto' },
+    { id: 8, titulo: 'Conferencia Empresarial', url: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop', categoria: 'corporativo', tipo: 'foto' },
+    { id: 9, titulo: 'Almuerzo Ejecutivo', url: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=300&fit=crop', categoria: 'corporativo', tipo: 'foto' },
+    { id: 10, titulo: 'Cumpleaños 1', url: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400&h=300&fit=crop', categoria: 'cumpleanos', tipo: 'foto' },
+    { id: 11, titulo: 'Cumpleaños 2', url: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop', categoria: 'cumpleanos', tipo: 'foto' },
+    { id: 12, titulo: 'Fiesta Infantil', url: 'https://images.unsplash.com/photo-1510578406352-481852e94b03?w=400&h=300&fit=crop', categoria: 'cumpleanos', tipo: 'foto' },
+    { id: 13, titulo: 'Repostería Artesanal', url: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop', categoria: 'cumpleanos', tipo: 'foto' },
+    { id: 14, titulo: 'Presentación de Platos', url: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop', categoria: 'bodas', tipo: 'foto' },
+    { id: 15, titulo: 'Mesa Principal', url: 'https://images.unsplash.com/photo-1504674900769-e6b99cd60006?w=400&h=300&fit=crop', categoria: 'corporativo', tipo: 'foto' }
   ];
 
   let resultado = galeria;
