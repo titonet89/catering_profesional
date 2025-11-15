@@ -1,0 +1,757 @@
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                ║
+║           🚀 GUÍA COMPLETA - CATERING PROFESIONAL AVANZADO 🚀                  ║
+║                                                                                ║
+║              Solución Profesional con Admin Panel + Base de Datos               ║
+║                                                                                ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+
+═════════════════════════════════════════════════════════════════════════════════
+ÍNDICE
+═════════════════════════════════════════════════════════════════════════════════
+
+PARTE 1: INSTALACIÓN Y CONFIGURACIÓN
+PARTE 2: ESTRUCTURA DEL PROYECTO
+PARTE 3: CÓMO CAMBIAR DATOS (PC Y TELÉFONO)
+PARTE 4: SUBIR FOTOS Y VIDEOS
+PARTE 5: PANEL DE ADMINISTRACIÓN
+PARTE 6: BASE DE DATOS
+PARTE 7: DESPLEGAR A INTERNET
+
+
+═════════════════════════════════════════════════════════════════════════════════
+PARTE 1: INSTALACIÓN Y CONFIGURACIÓN
+═════════════════════════════════════════════════════════════════════════════════
+
+PASO 1: DESCARGAR E INSTALAR NODE.JS
+──────────────────────────────────────────────────────────────────────────────
+
+¿Qué es Node.js?
+  • Es un programa que permite ejecutar código JavaScript en tu computadora
+  • Necesario para ejecutar el servidor del sitio web
+  • Incluye npm (gestor de paquetes)
+
+Cómo instalarlo:
+
+1. Ve a: https://nodejs.org/
+2. Descarga la versión LTS (Recomendada)
+3. Ejecuta el instalador (.msi)
+4. Sigue los pasos predeterminados
+5. Al final selecciona "Install Native Tools"
+6. Espera a que termine
+
+Verificar instalación:
+  • Abre cmd o terminal
+  • Escribe: node --version
+  • Debe mostrar: v18.x.x (o similar)
+  • Escribe: npm --version
+  • Debe mostrar: 9.x.x (o similar)
+
+
+PASO 2: INSTALAR DEPENDENCIAS DEL PROYECTO
+──────────────────────────────────────────────────────────────────────────────
+
+1. Abre terminal/cmd en la carpeta del proyecto
+   • Windows:
+     - Abre carpeta CateringProfesional
+     - Click derecho → "Abrir aquí la terminal"
+
+   • Mac:
+     - Terminal → cd /ruta/a/carpeta
+
+2. Escribe el comando:
+   npm install
+
+3. Espera a que termine (2-3 minutos)
+   • Descargará todas las dependencias necesarias
+   • Creará carpeta "node_modules"
+
+4. Verifica que funcionó:
+   • Debe haber una carpeta "node_modules"
+   • Debe haber archivo "package-lock.json"
+
+
+PASO 3: CREAR ARCHIVO .env
+──────────────────────────────────────────────────────────────────────────────
+
+¿Qué es .env?
+  • Archivo que guarda tus configuraciones secretas (contraseñas, URLs)
+  • No se sube a internet por seguridad
+  • Cada computadora tiene su propio .env
+
+Cómo crear:
+
+1. En la carpeta raíz (CateringProfesional)
+2. Busca el archivo ".env.example"
+3. Cópialo y renómbralo a ".env"
+4. Abre .env con Notepad
+5. Rellena los datos:
+
+   PORT=3000
+   MONGODB_URI=mongodb://localhost:27017/catering
+   JWT_SECRET=tu_clave_super_secreta_aqui_12345
+
+6. Guarda el archivo
+
+7. IMPORTANTE: NUNCA compartas este archivo (.env)
+
+
+PASO 4: INICIAR EL SERVIDOR
+──────────────────────────────────────────────────────────────────────────────
+
+En la terminal:
+
+1. Escribe:
+   npm start
+
+2. Debe mostrar algo como:
+   ╔════════════════════════════════════════════════════╗
+   ║  🍽️  CATERING PROFESIONAL - SERVIDOR INICIADO 🍽️  ║
+   ╚════════════════════════════════════════════════════╝
+
+   Servidor corriendo en: http://localhost:3000
+
+3. Abre tu navegador:
+   • Ve a: http://localhost:3000
+   • ¡Debes ver tu sitio web!
+
+4. Para acceder al admin:
+   • Ve a: http://localhost:3000/admin
+
+
+═════════════════════════════════════════════════════════════════════════════════
+PARTE 2: ESTRUCTURA DEL PROYECTO
+═════════════════════════════════════════════════════════════════════════════════
+
+Carpeta del Proyecto:
+───────────────────────────────────────────────────────────────────────────────
+
+CateringProfesional/
+│
+├── public/                    ← Archivos visibles en internet
+│   ├── images/               ← Fotos de servicios (ejemplo: bodas.jpg)
+│   ├── videos/               ← Videos (ejemplo: hero-bg.mp4)
+│   └── uploads/              ← Fotos/videos subidas por admin
+│       ├── fotos/
+│       └── videos/
+│
+├── assets/                    ← CSS, JavaScript
+│   ├── css/
+│   │   ├── main.css
+│   │   ├── carrusel.css
+│   │   └── galeria.css
+│   └── js/
+│       ├── main.js
+│       ├── carrusel.js
+│       ├── galeria.js
+│       └── formularios.js
+│
+├── admin/                     ← Panel de administración
+│   ├── index.html
+│   ├── css/
+│   └── js/
+│
+├── pages/                     ← Páginas HTML separadas (opcional)
+│
+├── backend/                   ← Código del servidor
+│   ├── routes/
+│   ├── models/
+│   └── controllers/
+│
+├── server.js                  ← Archivo principal del servidor
+├── package.json               ← Dependencias del proyecto
+├── .env                       ← Configuración (NO subir a git)
+├── .env.example               ← Ejemplo de .env
+└── index.html                 ← Página principal
+
+
+═════════════════════════════════════════════════════════════════════════════════
+PARTE 3: CÓMO CAMBIAR DATOS (PC Y TELÉFONO)
+═════════════════════════════════════════════════════════════════════════════════
+
+OPCIÓN A: EDITAR DATOS EN EL CÓDIGO (Rápido, local)
+──────────────────────────────────────────────────────────────────────────────
+
+Ubicación: server.js (línea ~45)
+
+Cómo cambiar:
+
+1. Abre server.js con un editor de texto
+2. Busca la sección: "API para obtener configuración del sitio"
+3. Encontrarás esto:
+
+   const config = {
+     empresa: {
+       nombre: 'Catering Profesional',
+       telefono: '+54 9 388 123-4567',
+       email: 'contacto@cateringprofesional.com.ar',
+       ubicacion: 'San Salvador de Jujuy, Jujuy',
+       años_experiencia: 12,
+       eventos_realizados: 500,
+       satisfaccion: 98
+     }
+   };
+
+4. Cambia los valores:
+   • nombre: Nombre de tu empresa
+   • telefono: Tu teléfono real
+   • email: Tu email real
+   • ubicacion: Tu ciudad
+   • años_experiencia: Años que llevas
+   • eventos_realizados: Eventos que hiciste
+   • satisfaccion: Porcentaje de satisfacción (0-100)
+
+5. Guarda (Ctrl+S)
+6. En terminal presiona: Ctrl+C (detiene servidor)
+7. Escribe: npm start (reinicia servidor)
+
+
+OPCIÓN B: USAR PANEL DE ADMINISTRACIÓN (Mejor, sin reiniciar)
+──────────────────────────────────────────────────────────────────────────────
+
+1. Abre: http://localhost:3000/admin
+2. Ve a: Configuración de Empresa
+3. Cambia los datos
+4. Click: Guardar
+5. Los cambios se aplican INMEDIATAMENTE
+6. SIN necesidad de reiniciar servidor
+
+
+CAMBIAR DATOS DESDE TELÉFONO
+──────────────────────────────────────────────────────────────────────────────
+
+Para acceder desde teléfono:
+
+1. PC y Teléfono deben estar en la MISMA RED WiFi
+
+2. En PC, abre terminal y escribe:
+   ipconfig
+
+3. Busca "Dirección IPv4" (ej: 192.168.x.x)
+
+4. En teléfono, abre navegador y ve a:
+   http://192.168.x.x:3000/admin
+
+5. ¡Puedes administrar desde el teléfono!
+
+
+═════════════════════════════════════════════════════════════════════════════════
+PARTE 4: SUBIR FOTOS Y VIDEOS
+═════════════════════════════════════════════════════════════════════════════════
+
+ESTRUCTURA DE CARPETAS PARA FOTOS
+──────────────────────────────────────────────────────────────────────────────
+
+public/images/
+├── bodas.jpg              ← Foto para la sección de Bodas
+├── corporativo.jpg        ← Foto para la sección de Corporativos
+├── cumpleaños.jpg         ← Foto para la sección de Cumpleaños
+├── otros.jpg              ← Foto para la sección de Otros
+└── galeria/               ← Fotos de la galería
+    ├── boda1.jpg
+    ├── boda2.jpg
+    ├── corp1.jpg
+    └── cumple1.jpg
+
+public/videos/
+├── hero-bg.mp4            ← Video de fondo del hero
+
+public/uploads/            ← Fotos subidas por admin
+├── fotos/
+│   ├── 1704067200_foto1.jpg
+│   └── 1704067201_foto2.jpg
+└── videos/
+    ├── 1704067202_video1.mp4
+    └── 1704067203_video2.mp4
+
+
+CÓMO SUBIR FOTOS DESDE EL PANEL ADMIN
+──────────────────────────────────────────────────────────────────────────────
+
+1. Abre: http://localhost:3000/admin
+2. Ve a: "Subir Fotos"
+3. Click en: "Elegir archivo"
+4. Selecciona una foto de tu computadora
+5. Click: "Subir"
+6. ¡La foto se sube automáticamente a /public/uploads/fotos/
+
+DESDE TELÉFONO:
+
+1. Abre: http://192.168.x.x:3000/admin
+2. Ve a: "Subir Fotos"
+3. Click en: "Elegir archivo"
+4. Elige una foto de tu galería del teléfono
+5. Click: "Subir"
+6. ¡Listo!
+
+
+CÓMO SUBIR VIDEOS
+──────────────────────────────────────────────────────────────────────────────
+
+1. Panel admin → "Subir Videos"
+2. Click: "Elegir archivo"
+3. Selecciona video (.mp4, .webm)
+4. Click: "Subir"
+5. El video se guarda en: /public/uploads/videos/
+
+
+FORMATOS RECOMENDADOS
+──────────────────────────────────────────────────────────────────────────────
+
+FOTOS:
+  • Formato: JPG o PNG
+  • Tamaño máx: 5 MB
+  • Resolución: 1920x1080 (Full HD) o mayor
+  • Optimizar: Usa TinyPNG.com para comprimir
+
+VIDEOS:
+  • Formato: MP4 (H.264)
+  • Tamaño máx: 100 MB (o menos)
+  • Resolución: 1920x1080 (Full HD)
+  • Duración recomendada: 10-30 segundos (hero)
+  • Comprimir: Usa HandBrake (gratis) o FFmpeg
+
+
+═════════════════════════════════════════════════════════════════════════════════
+PARTE 5: PANEL DE ADMINISTRACIÓN
+═════════════════════════════════════════════════════════════════════════════════
+
+ACCESO AL PANEL
+──────────────────────────────────────────────────────────────────────────────
+
+URL: http://localhost:3000/admin
+Usuario: admin
+Contraseña: admin123 (CAMBIAR INMEDIATAMENTE en producción)
+
+
+FUNCIONALIDADES DEL PANEL
+──────────────────────────────────────────────────────────────────────────────
+
+1. CONFIGURACIÓN DE EMPRESA
+   ├─ Nombre
+   ├─ Teléfono
+   ├─ Email
+   ├─ Ubicación
+   ├─ Redes sociales
+   └─ Información general
+
+2. SERVICIOS
+   ├─ Crear nuevo servicio
+   ├─ Editar servicios
+   ├─ Eliminar servicios
+   └─ Subir fotos de servicios
+
+3. GALERÍA
+   ├─ Subir fotos
+   ├─ Subir videos
+   ├─ Organizar por categoría
+   ├─ Editar información
+   └─ Eliminar fotos/videos
+
+4. TESTIMONIOS
+   ├─ Ver comentarios recibidos
+   ├─ Aprobar/Rechazar comentarios
+   ├─ Responder a comentarios
+   └─ Eliminar comentarios
+
+5. CONTACTO
+   ├─ Ver solicitudes de cotización
+   ├─ Marcar como contactado
+   ├─ Exportar datos
+   └─ Eliminar solicitudes
+
+6. USUARIOS
+   ├─ Crear nuevos usuarios admin
+   ├─ Cambiar contraseña
+   ├─ Editar perfil
+   └─ Eliminar usuarios
+
+7. ESTADÍSTICAS
+   ├─ Número de visitas
+   ├─ Solicitudes recibidas
+   ├─ Comentarios pendientes
+   └─ Fotos en galería
+
+
+CÓMO USAR CADA SECCIÓN
+──────────────────────────────────────────────────────────────────────────────
+
+CAMBIAR CONFIGURACIÓN DE EMPRESA:
+
+1. Admin → Configuración
+2. Edita los campos
+3. Click: Guardar
+4. Los cambios aparecen INMEDIATAMENTE en el sitio
+
+SUBIR FOTOS A LA GALERÍA:
+
+1. Admin → Galería → Subir Fotos
+2. Click: "Elegir archivo"
+3. Selecciona foto
+4. Rellena: Título, Descripción, Categoría
+5. Click: "Subir"
+6. Aparece automáticamente en la galería
+
+MODERAR COMENTARIOS:
+
+1. Admin → Testimonios
+2. Verás los comentarios pendientes
+3. Click: Aprobar (aparece en sitio)
+4. O Click: Rechazar (no aparece)
+
+VER SOLICITUDES DE CONTACTO:
+
+1. Admin → Contacto
+2. Verás todas las solicitudes
+3. Click en una: Ve todos los detalles
+4. Puedes guardar en Excel o responder por email
+
+
+═════════════════════════════════════════════════════════════════════════════════
+PARTE 6: BASE DE DATOS
+═════════════════════════════════════════════════════════════════════════════════
+
+¿QUÉ ES UNA BASE DE DATOS?
+──────────────────────────────────────────────────────────────────────────────
+
+Una base de datos es un lugar donde se guardan todos tus datos:
+  • Solicitudes de contacto
+  • Comentarios de clientes
+  • Información de fotos
+  • Usuarios del admin
+  • Etc.
+
+SIN base de datos: Los datos se pierden al apagar la computadora
+CON base de datos: Los datos se guardan permanentemente
+
+
+OPCIONES DE BASE DE DATOS
+──────────────────────────────────────────────────────────────────────────────
+
+OPCIÓN 1: MongoDB Atlas (NUBE - RECOMENDADO)
+  Ventajas:
+    ✅ Gratis (hasta 5 GB)
+    ✅ No necesita instalación
+    ✅ Accesible desde cualquier lado
+    ✅ Fácil de usar
+    ✅ Seguro en la nube
+
+  Desventajas:
+    ❌ Requiere conexión a internet
+    ❌ Requiere cuenta
+
+  Cómo usar:
+    1. Ve a: https://www.mongodb.com/cloud/atlas
+    2. Click: "Try Free"
+    3. Crea cuenta
+    4. Crea un cluster
+    5. Copia la URL de conexión
+    6. Pégala en .env:
+       MONGODB_URI=mongodb+srv://usuario:pass@cluster.mongodb.net/catering
+
+OPCIÓN 2: MongoDB Local
+  Ventajas:
+    ✅ Gratis
+    ✅ No requiere internet
+    ✅ Rápido
+
+  Desventajas:
+    ❌ Solo funciona en tu computadora
+    ❌ Requiere instalar MongoDB
+    ❌ Datos se pierden si formateas PC
+
+  Cómo usar:
+    1. Instala MongoDB desde: https://mongodb.com/try/download/community
+    2. En .env:
+       MONGODB_URI=mongodb://localhost:27017/catering
+
+
+INSTALAR MONGODB LOCAL (OPCIONAL)
+──────────────────────────────────────────────────────────────────────────────
+
+1. Ve a: https://www.mongodb.com/try/download/community
+2. Descarga Community Edition
+3. Ejecuta el instalador
+4. Sigue los pasos predeterminados
+5. En el final, selecciona:
+   ☑ Install MongoDB as a Service
+6. Click: Instalar
+7. Espera a que termine
+
+Verificar instalación:
+  • Abre cmd
+  • Escribe: mongod --version
+  • Debe mostrar: version...
+
+
+ADMINISTRAR LA BASE DE DATOS
+──────────────────────────────────────────────────────────────────────────────
+
+VISUALIZAR DATOS CON MongoDB Compass (GUI):
+
+1. Descarga: https://www.mongodb.com/products/compass
+2. Instálalo
+3. Abre Compass
+4. Click: "New Connection"
+5. Ingresa: mongodb://localhost:27017
+6. Click: Connect
+7. ¡Ves todas tus colecciones y datos!
+
+COMANDOS ÚTILES (Línea de comandos):
+
+Conectar a MongoDB:
+  mongo mongodb://localhost:27017
+
+Ver todas las bases de datos:
+  show dbs
+
+Seleccionar base de datos:
+  use catering-profesional
+
+Ver todas las colecciones:
+  show collections
+
+Ver todos los documentos:
+  db.contactos.find()
+
+Buscar un documento específico:
+  db.contactos.findOne({ email: "usuario@email.com" })
+
+Eliminar un documento:
+  db.contactos.deleteOne({ _id: ObjectId("...") })
+
+Actualizar un documento:
+  db.contactos.updateOne({ _id: ObjectId("...") }, { $set: { estado: "contactado" } })
+
+Backup de la base de datos:
+  mongodump --out ./backup
+
+Restaurar backup:
+  mongorestore ./backup
+
+
+HACER BACKUP DE TUS DATOS
+──────────────────────────────────────────────────────────────────────────────
+
+IMPORTANTE: Haz backups regularmente para no perder datos
+
+OPCIÓN 1: Automático (MongoDB Atlas)
+  • Atlas realiza backups automáticos cada 6 horas
+  • Puedes descargarlos desde el panel
+
+OPCIÓN 2: Manual (Local)
+  • Abre cmd
+  • Navega a la carpeta del proyecto
+  • Escribe: mongodump --out ./backup
+  • Crea una carpeta "backup" con todos tus datos
+
+OPCIÓN 3: Desde Compass
+  • Abre MongoDB Compass
+  • Click derecho en colección → Export
+  • Selecciona formato: JSON
+  • Guarda en tu computadora
+
+
+═════════════════════════════════════════════════════════════════════════════════
+PARTE 7: DESPLEGAR A INTERNET
+═════════════════════════════════════════════════════════════════════════════════
+
+REQUISITOS PARA INTERNET
+──────────────────────────────────────────────────────────────────────────────
+
+Para llevar tu sitio a internet necesitas:
+
+1. HOSTING (Servidor en internet)
+   • Donde corre tu aplicación Node.js
+   • Opciones: Heroku, Render.com, Railway, Replit
+
+2. BASE DE DATOS (MongoDB Atlas)
+   • Para guardar tus datos
+   • Se conecta automáticamente desde el servidor
+
+3. DOMINIO (Opcional)
+   • Tu URL personalizada
+   • Ejemplo: www.cateringprofesional.com
+   • Servicios: Namecheap, GoDaddy, Cloudflare
+
+
+OPCIÓN 1: RENDER.COM (Recomendado, Gratis)
+──────────────────────────────────────────────────────────────────────────────
+
+Ventajas:
+  ✅ Gratis (hasta cierto límite)
+  ✅ Fácil de usar
+  ✅ Node.js soportado
+  ✅ MongoDB soportado
+  ✅ Automático
+
+Pasos:
+
+1. Ve a: https://render.com
+2. Click: "Sign up"
+3. Usa GitHub o email
+4. Conecta tu repositorio GitHub
+5. Click: "New Web Service"
+6. Selecciona tu repositorio
+7. Configuración:
+   • Name: catering-profesional
+   • Environment: Node
+   • Build Command: npm install
+   • Start Command: npm start
+8. Click: "Create Web Service"
+9. Espera 5 minutos
+10. Tu URL: https://catering-profesional.onrender.com
+
+Variables de entorno en Render:
+  1. En el servicio → Environment
+  2. Agrega variables:
+     MONGODB_URI: mongodb+srv://usuario:pass@cluster...
+     JWT_SECRET: tu_clave_secreta
+
+
+OPCIÓN 2: RAILWAY (También gratis)
+──────────────────────────────────────────────────────────────────────────────
+
+Pasos:
+
+1. Ve a: https://railway.app
+2. Click: "Login with GitHub"
+3. Conecta con GitHub
+4. Click: "New Project" → "Deploy from GitHub repo"
+5. Selecciona tu repositorio
+6. Railway detecta Node.js automáticamente
+7. Configura MongoDB Atlas
+8. Deploy automático
+9. ¡Tu sitio está en línea!
+
+
+OPCIÓN 3: HEROKU (Popular pero ahora de pago)
+──────────────────────────────────────────────────────────────────────────────
+
+Nota: Heroku cambió a pago, pero puedo documentarlo si lo quieres.
+
+
+USANDO MONGODB ATLAS (Recomendado)
+──────────────────────────────────────────────────────────────────────────────
+
+1. Ve a: https://mongodb.com/cloud/atlas
+2. Crea cuenta (gratuita)
+3. Crea un cluster:
+   • Cloud: AWS
+   • Region: Sudamérica (mejor latencia)
+   • Tier: M0 (gratuito)
+4. Crea usuario de BD:
+   • Username: admin
+   • Password: contraseña_segura
+5. Whitelist tu IP o permite todos (0.0.0.0)
+6. Copia la URL de conexión:
+   mongodb+srv://admin:contraseña@cluster.mongodb.net/catering
+7. Usa esta URL en tu .env y en el hosting
+
+
+DOMINIO PERSONALIZADO
+──────────────────────────────────────────────────────────────────────────────
+
+OPCIÓN A: Sin dominio (Gratis)
+  • Tu URL: catering-profesional.onrender.com
+  • Funciona perfectamente
+  • Gratuito
+
+OPCIÓN B: Con dominio personalizado (Pago)
+
+Pasos:
+
+1. Compra dominio en: Namecheap.com (barato)
+   • Costo: $2-8 USD/año
+   • Ej: cateringprofesional.com.ar
+
+2. En Render:
+   • Servicio → Custom Domains
+   • Ingresa tu dominio
+   • Render te da instrucciones de DNS
+
+3. En Namecheap:
+   • Manage Domain → Nameservers
+   • Usa los nameservers de Render
+   • Espera 24-48 horas
+
+4. ¡Tu URL: www.cateringprofesional.com.ar
+
+
+CHECKLIST FINAL ANTES DE DESPLEGAR
+──────────────────────────────────────────────────────────────────────────────
+
+✅ Base de datos creada (MongoDB Atlas)
+✅ Archivo .env con variables correctas
+✅ Repositorio en GitHub
+✅ Variables de entorno en Render
+✅ Servidor puede iniciar sin errores (npm start)
+✅ Fotos y videos subidos
+✅ Configuración de empresa actualizada
+✅ Formularios funcionando
+✅ Admin panel funcional
+
+
+═════════════════════════════════════════════════════════════════════════════════
+ARCHIVOS IMPORTANTES A RECORDAR
+═════════════════════════════════════════════════════════════════════════════════
+
+NUNCA subas a internet:
+  ❌ .env (tiene contraseñas)
+  ❌ node_modules/ (se descarga con npm install)
+
+SIEMPRE haz backup de:
+  ✅ .env (guarda en lugar seguro)
+  ✅ Base de datos (MongoDB Atlas lo hace automático)
+  ✅ Fotos y videos
+
+ARCHIVOS IMPORTANTES:
+  ✅ server.js (servidor principal)
+  ✅ package.json (dependencias)
+  ✅ index.html (página principal)
+  ✅ admin/index.html (panel admin)
+
+
+═════════════════════════════════════════════════════════════════════════════════
+SOLUCIÓN DE PROBLEMAS
+═════════════════════════════════════════════════════════════════════════════════
+
+PROBLEMA: npm install no funciona
+SOLUCIÓN:
+  • Asegúrate de tener Node.js instalado
+  • Abre cmd como Administrador
+  • Intenta: npm install --legacy-peer-deps
+
+PROBLEMA: npm start da error
+SOLUCIÓN:
+  • Verifica que .env exista y esté bien formado
+  • Verifica que el puerto 3000 esté disponible
+  • Intenta con otro puerto: PORT=5000 npm start
+
+PROBLEMA: No puedo acceder desde teléfono
+SOLUCIÓN:
+  • PC y teléfono deben estar en MISMA red WiFi
+  • Usa ipconfig para obtener tu IP
+  • Asegúrate de incluir el puerto: 192.168.x.x:3000
+
+PROBLEMA: Base de datos no conecta
+SOLUCIÓN:
+  • Verifica la URI en .env
+  • Asegúrate de estar conectado a internet
+  • Whitelist tu IP en MongoDB Atlas
+
+PROBLEMA: Fotos no se muestran
+SOLUCIÓN:
+  • Verifica que estén en: public/images/ o public/uploads/
+  • Verifica la ruta en el código
+  • Asegúrate de que el servidor está corriendo
+
+
+═════════════════════════════════════════════════════════════════════════════════
+
+¡LISTO! Ya tienes una guía completa para tu sitio profesional.
+
+Cualquier duda, consulta esta guía paso a paso.
+
+═════════════════════════════════════════════════════════════════════════════════

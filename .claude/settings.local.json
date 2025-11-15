@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(powershell \"Stop-Process -Id 19608 -Force\")",
+      "Bash(dir:*)",
+      "Bash(powershell \"Get-ChildItem -Recurse | Select-Object FullName | head -50\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

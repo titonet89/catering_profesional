@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Catering Profesional</title>
+    <link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar de navegación -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <h1>⚙️ Admin Panel</h1>
+            </div>
+            <nav class="admin-menu">
+                <ul>
+                    <li><a href="#" class="menu-item active" data-tab="empresa">Empresa</a></li>
+                    <li><a href="#" class="menu-item" data-tab="servicios">Servicios</a></li>
+                    <li><a href="#" class="menu-item" data-tab="galeria">Galería</a></li>
+                    <li><a href="#" class="menu-item" data-tab="comentarios">Comentarios</a></li>
+                    <li><a href="#" class="menu-item" data-tab="contacto">Contactos</a></li>
+                    <li><a href="#" class="menu-item" data-tab="usuarios">Usuarios</a></li>
+                    <li><a href="#" class="menu-item" data-tab="estadisticas">Estadísticas</a></li>
+                </ul>
+            </nav>
+            <div class="admin-footer">
+                <a href="/" class="btn-logout">← Volver al sitio</a>
+            </div>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="admin-content">
+            <header class="admin-header">
+                <h2 id="page-title">Administración de Empresa</h2>
+                <div class="user-info">
+                    <span class="user-name">Admin</span>
+                    <button class="btn-logout">Cerrar Sesión</button>
+                </div>
+            </header>
+
+            <div class="admin-body">
+                <!-- TAB 1: EMPRESA -->
+                <section id="empresa" class="admin-tab active">
+                    <h3>Información de la Empresa</h3>
+                    <form id="form-empresa" class="admin-form">
+                        <div class="form-group">
+                            <label>Nombre de la Empresa</label>
+                            <input type="text" id="empresa-nombre" placeholder="Catering Profesional" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="tel" id="empresa-telefono" placeholder="+54 9 388 123-4567" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="empresa-email" placeholder="contacto@cateringprofesional.com.ar" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Ubicación</label>
+                            <input type="text" id="empresa-ubicacion" placeholder="San Salvador de Jujuy, Jujuy" required>
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp</label>
+                            <input type="tel" id="empresa-whatsapp" placeholder="+549388123567" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Logo de la Empresa</label>
+                            <input type="file" id="empresa-logo" accept="image/*">
+                            <small>Tamaño recomendado: 200x200px, Max: 2MB</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </form>
+                </section>
+
+                <!-- TAB 2: SERVICIOS -->
+                <section id="servicios" class="admin-tab">
+                    <h3>Gestión de Servicios</h3>
+                    <button class="btn btn-primary" id="btn-nuevo-servicio">+ Nuevo Servicio</button>
+                    <div id="servicios-list" class="admin-list">
+                        <!-- Se cargarán dinámicamente -->
+                    </div>
+                </section>
+
+                <!-- TAB 3: GALERÍA -->
+                <section id="galeria" class="admin-tab">
+                    <h3>Galería de Fotos y Videos</h3>
+                    <div class="upload-area">
+                        <h4>Subir Fotos/Videos</h4>
+                        <input type="file" id="galeria-upload" accept="image/*,video/*" multiple>
+                        <select id="galeria-categoria">
+                            <option value="">Selecciona categoría</option>
+                            <option value="bodas">Bodas</option>
+                            <option value="corporativo">Corporativo</option>
+                            <option value="cumpleanos">Cumpleaños</option>
+                        </select>
+                        <button class="btn btn-secondary" id="btn-upload-galeria">Subir Archivos</button>
+                    </div>
+                    <div id="galeria-list" class="admin-gallery">
+                        <!-- Se cargarán dinámicamente -->
+                    </div>
+                </section>
+
+                <!-- TAB 4: COMENTARIOS -->
+                <section id="comentarios" class="admin-tab">
+                    <h3>Gestión de Comentarios</h3>
+                    <div id="comentarios-list" class="admin-list">
+                        <!-- Se cargarán dinámicamente -->
+                    </div>
+                </section>
+
+                <!-- TAB 5: CONTACTO -->
+                <section id="contacto" class="admin-tab">
+                    <h3>Solicitudes de Contacto</h3>
+                    <button class="btn btn-secondary" id="btn-export-contactos">Exportar a Excel</button>
+                    <div id="contactos-list" class="admin-list">
+                        <!-- Se cargarán dinámicamente -->
+                    </div>
+                </section>
+
+                <!-- TAB 6: USUARIOS -->
+                <section id="usuarios" class="admin-tab">
+                    <h3>Gestión de Usuarios Admin</h3>
+                    <button class="btn btn-primary" id="btn-nuevo-usuario">+ Nuevo Usuario</button>
+                    <div id="usuarios-list" class="admin-list">
+                        <!-- Se cargarán dinámicamente -->
+                    </div>
+                </section>
+
+                <!-- TAB 7: ESTADÍSTICAS -->
+                <section id="estadisticas" class="admin-tab">
+                    <h3>Estadísticas del Sitio</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>Visitantes</h4>
+                            <p class="stat-value">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Solicitudes este mes</h4>
+                            <p class="stat-value">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Comentarios pendientes</h4>
+                            <p class="stat-value">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Últimos 30 días</h4>
+                            <p class="stat-value">-</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para editar servicio -->
+    <div id="modal-servicio" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Editar Servicio</h3>
+            <form id="form-servicio" class="admin-form">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" id="servicio-nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <textarea id="servicio-descripcion" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Precio ($)</label>
+                    <input type="number" id="servicio-precio" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label>Foto del Servicio</label>
+                    <input type="file" id="servicio-imagen" accept="image/*">
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-secondary" onclick="cerrarModal()">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para editar usuario -->
+    <div id="modal-usuario" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Editar Usuario</h3>
+            <form id="form-usuario" class="admin-form">
+                <div class="form-group">
+                    <label>Nombre de Usuario</label>
+                    <input type="text" id="usuario-nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="usuario-email" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="usuario-password" placeholder="Dejar en blanco para no cambiar">
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-secondary" onclick="cerrarModal()">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/admin/script.js"></script>
+</body>
+</html>

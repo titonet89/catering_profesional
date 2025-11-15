@@ -1,0 +1,124 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   ESTILOS DEL CARRUSEL DE FOTOS
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.carrusel-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.carrusel-items {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carrusel-item {
+    min-width: 100%;
+    position: relative;
+    aspect-ratio: 16/9;
+}
+
+.carrusel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carrusel-item.active {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Botones del carrusel */
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 15px 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.carrusel-prev {
+    left: 20px;
+}
+
+.carrusel-next {
+    right: 20px;
+}
+
+.carrusel-btn:hover {
+    background: rgba(196, 30, 58, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Dots del carrusel */
+.carrusel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 2rem;
+}
+
+.carrusel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.carrusel-dot.active {
+    background: var(--primary-color);
+    width: 30px;
+    border-radius: 6px;
+}
+
+.carrusel-dot:hover {
+    border-color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carrusel-btn {
+        padding: 10px 15px;
+        font-size: 1.5rem;
+    }
+
+    .carrusel-prev {
+        left: 10px;
+    }
+
+    .carrusel-next {
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carrusel-item {
+        aspect-ratio: 4/3;
+    }
+
+    .carrusel-btn {
+        padding: 8px 12px;
+        font-size: 1.2rem;
+    }
+
+    .carrusel-prev {
+        left: 5px;
+    }
+
+    .carrusel-next {
+        right: 5px;
+    }
+}

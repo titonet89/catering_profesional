@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catering Profesional - Servicios de catering para bodas, eventos corporativos y celebraciones">
+    <meta name="theme-color" content="#C9A227">
+    <title>Catering Profesional - Eventos Especiales</title>
+
+    <!-- Estilos consolidados -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <img src="/images/logo.png" alt="Logo" class="logo" onerror="this.src='/images/placeholder-logo.png'">
+                <span class="company-name" id="empresa-nombre">Catering Profesional</span>
+            </div>
+            <button class="navbar-toggle" id="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="#presupuesto" class="nav-link">💰 Presupuesto</a></li>
+                <li><a href="#galeria" class="nav-link">Galería</a></li>
+                <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                <li class="auth-nav" id="auth-nav">
+                    <button class="btn-auth" id="btn-login">Iniciar Sesión</button>
+                </li>
+            </ul>
+            <div class="auth-menu" id="auth-menu" style="display: none;">
+                <div class="user-profile" id="user-profile" style="display: none;">
+                    <img id="user-avatar" class="user-avatar" alt="Avatar">
+                    <div class="user-info">
+                        <span id="user-name" class="user-name">Usuario</span>
+                        <button class="btn-logout" id="btn-logout">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN 1: INICIO CON VIDEO DE FONDO -->
+    <section id="inicio" class="hero">
+        <video autoplay muted loop class="hero-video">
+            <source src="/videos/hero-bg.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Eventos Especiales</h1>
+            <p class="hero-subtitle">Catering profesional para bodas, cumpleaños y eventos corporativos</p>
+            <a href="#contacto" class="btn btn-primary">Solicitar Presupuesto</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: SERVICIOS -->
+    <section id="servicios" class="servicios-section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="servicios-grid" id="servicios-grid">
+                <!-- Se cargarán dinámicamente desde la API -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: CARRUSEL DE FOTOS -->
+    <section id="carrusel" class="carrusel-section">
+        <div class="container">
+            <h2 class="section-title">Últimas Bodas y Eventos</h2>
+            <div class="carrusel-container">
+                <button class="carrusel-btn carrusel-prev" id="carrusel-prev">❮</button>
+                <div class="carrusel-wrapper">
+                    <div class="carrusel-items" id="carrusel-items">
+                        <!-- Se cargarán dinámicamente -->
+                    </div>
+                </div>
+                <button class="carrusel-btn carrusel-next" id="carrusel-next">❯</button>
+            </div>
+            <div class="carrusel-dots" id="carrusel-dots">
+                <!-- Se generarán dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: GALERÍA CON FILTROS -->
+    <section id="galeria" class="galeria-section">
+        <div class="container">
+            <h2 class="section-title">Galería</h2>
+            <div class="galeria-filtros">
+                <button class="filtro-btn active" data-filtro="todas">Todas</button>
+                <button class="filtro-btn" data-filtro="bodas">Bodas</button>
+                <button class="filtro-btn" data-filtro="corporativo">Corporativo</button>
+                <button class="filtro-btn" data-filtro="cumpleanos">Cumpleaños</button>
+                <button class="filtro-btn" data-filtro="videos">Videos</button>
+            </div>
+            <div class="galeria-grid" id="galeria-grid">
+                <!-- Se cargarán dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL PARA VER GALERÍA EN GRANDE -->
+    <div class="modal" id="galeria-modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modal-img">
+        <div id="modal-caption"></div>
+        <button class="modal-prev">❮</button>
+        <button class="modal-next">❯</button>
+    </div>
+
+    <!-- SECCIÓN 5: PRESUPUESTO PERSONALIZADO -->
+    <section id="presupuesto" class="presupuesto-section">
+        <div class="container">
+            <h2 class="section-title">Arma Tu Presupuesto</h2>
+            <p class="section-subtitle">Crea un presupuesto personalizado eligiendo exactamente lo que necesitas</p>
+
+            <div class="presupuesto-grid">
+                <!-- Opciones de presupuesto -->
+                <div class="presupuesto-builder">
+                    <h3>Configurar tu evento</h3>
+
+                    <div class="presupuesto-option">
+                        <label>Tipo de Evento</label>
+                        <select id="presupuesto-tipo" class="presupuesto-select">
+                            <option value="">Selecciona un tipo</option>
+                            <option value="bodas">Bodas</option>
+                            <option value="corporativo">Evento Corporativo</option>
+                            <option value="cumpleanos">Cumpleaños</option>
+                            <option value="otro">Otro evento</option>
+                        </select>
+                    </div>
+
+                    <div class="presupuesto-option">
+                        <label>Número de Personas</label>
+                        <div class="presupuesto-input-group">
+                            <button type="button" class="presupuesto-btn-minus" id="btn-menos">−</button>
+                            <input type="number" id="presupuesto-personas" value="50" min="10" max="500" class="presupuesto-input-number">
+                            <button type="button" class="presupuesto-btn-plus" id="btn-mas">+</button>
+                        </div>
+                    </div>
+
+                    <div class="presupuesto-option">
+                        <label>Menú Base</label>
+                        <div class="presupuesto-radio-group">
+                            <label class="presupuesto-radio">
+                                <input type="radio" name="menu" value="basico" checked>
+                                <span class="presupuesto-radio-label">Básico ($15/pp)</span>
+                            </label>
+                            <label class="presupuesto-radio">
+                                <input type="radio" name="menu" value="profesional">
+                                <span class="presupuesto-radio-label">Profesional ($25/pp)</span>
+                            </label>
+                            <label class="presupuesto-radio">
+                                <input type="radio" name="menu" value="premium">
+                                <span class="presupuesto-radio-label">Premium ($40/pp)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="presupuesto-option">
+                        <label>Servicios Adicionales</label>
+                        <div class="presupuesto-checkbox-group">
+                            <label class="presupuesto-checkbox">
+                                <input type="checkbox" value="bartending" data-price="300">
+                                <span>Bartending ($300)</span>
+                            </label>
+                            <label class="presupuesto-checkbox">
+                                <input type="checkbox" value="meseros" data-price="500">
+                                <span>Meseros profesionales ($500)</span>
+                            </label>
+                            <label class="presupuesto-checkbox">
+                                <input type="checkbox" value="decoracion" data-price="400">
+                                <span>Decoración temática ($400)</span>
+                            </label>
+                            <label class="presupuesto-checkbox">
+                                <input type="checkbox" value="postre" data-price="200">
+                                <span>Postre especial ($200)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" id="btn-calcular-presupuesto">Calcular Presupuesto</button>
+                </div>
+
+                <!-- Resumen de presupuesto -->
+                <div class="presupuesto-resumen">
+                    <h3>Resumen de tu Presupuesto</h3>
+                    <div class="resumen-contenido">
+                        <div class="resumen-item">
+                            <span>Tipo de evento:</span>
+                            <strong id="resumen-tipo">Selecciona uno</strong>
+                        </div>
+                        <div class="resumen-item">
+                            <span>Número de personas:</span>
+                            <strong id="resumen-personas">50</strong>
+                        </div>
+                        <div class="resumen-item">
+                            <span>Menú:</span>
+                            <strong id="resumen-menu">Básico</strong>
+                        </div>
+                        <div class="resumen-item">
+                            <span>Costo por persona:</span>
+                            <strong id="resumen-precio">$15.00</strong>
+                        </div>
+
+                        <div style="border-top: 2px solid rgba(201, 162, 39, 0.3); margin: 1rem 0; padding-top: 1rem;">
+                            <div class="resumen-item">
+                                <span>Subtotal menú:</span>
+                                <strong id="resumen-subtotal">$750.00</strong>
+                            </div>
+                            <div class="resumen-item" id="resumen-adicionales-container" style="display: none;">
+                                <span>Servicios adicionales:</span>
+                                <strong id="resumen-adicionales">$0.00</strong>
+                            </div>
+                        </div>
+
+                        <div class="presupuesto-total">
+                            <span>Presupuesto Total:</span>
+                            <span id="presupuesto-total" class="total-amount">$750.00</span>
+                        </div>
+
+                        <p class="presupuesto-nota">✨ Este es un presupuesto estimado. Contáctanos para una cotización personalizada.</p>
+
+                        <a href="#contacto" class="btn btn-primary" style="width: 100%; text-align: center;">Solicitar Cotización</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 6: TESTIMONIOS -->
+    <section id="testimonios" class="testimonios-section">
+        <div class="container">
+            <h2 class="section-title">Qué dicen nuestros clientes</h2>
+            <div class="testimonios-grid" id="testimonios-grid">
+                <!-- Se cargarán dinámicamente -->
+            </div>
+            <div class="comentario-form">
+                <h3>Cuéntanos tu experiencia</h3>
+                <form id="form-comentario">
+                    <input type="text" placeholder="Tu nombre" id="comentario-nombre" required>
+                    <input type="email" placeholder="Tu email" id="comentario-email" required>
+                    <textarea placeholder="Tu comentario..." id="comentario-texto" rows="4" required></textarea>
+                    <div class="rating-selector">
+                        <label>Calificación:</label>
+                        <div class="stars">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Comentario</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 6: CONTACTO -->
+    <section id="contacto" class="contacto-section">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contacto-grid">
+                <div class="contacto-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="info-item">
+                        <strong>Teléfono:</strong>
+                        <a href="tel:" id="empresa-telefono">+54 9 388 123-4567</a>
+                    </div>
+                    <div class="info-item">
+                        <strong>Email:</strong>
+                        <a href="mailto:" id="empresa-email">contacto@cateringprofesional.com.ar</a>
+                    </div>
+                    <div class="info-item">
+                        <strong>Ubicación:</strong>
+                        <span id="empresa-ubicacion">San Salvador de Jujuy, Jujuy</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>WhatsApp:</strong>
+                        <a href="#" id="empresa-whatsapp">+54 9 388 123-567</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" title="Facebook">f</a>
+                        <a href="#" class="social-icon" title="Instagram">📷</a>
+                        <a href="#" class="social-icon" title="Twitter">𝕏</a>
+                    </div>
+                </div>
+                <form class="contacto-form" id="form-contacto">
+                    <h3>Solicitar Presupuesto</h3>
+                    <input type="text" placeholder="Tu nombre" id="contacto-nombre" required>
+                    <input type="email" placeholder="Tu email" id="contacto-email" required>
+                    <input type="tel" placeholder="Tu teléfono" id="contacto-telefono" required>
+                    <input type="date" id="contacto-fecha" required>
+                    <select id="contacto-servicio" required>
+                        <option value="">Selecciona un servicio</option>
+                        <option value="bodas">Bodas</option>
+                        <option value="corporativo">Evento Corporativo</option>
+                        <option value="cumpleanos">Cumpleaños</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    <input type="number" placeholder="Número de personas" id="contacto-personas" min="1" required>
+                    <textarea placeholder="Detalles adicionales..." id="contacto-detalles" rows="4"></textarea>
+                    <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Catering Profesional. Todos los derechos reservados.</p>
+            <p>Desarrollado con ❤️ para eventos especiales</p>
+        </div>
+    </footer>
+
+    <!-- MODAL DE AUTENTICACIÓN -->
+    <div id="auth-modal" class="modal" style="display: none;">
+        <div class="modal-content auth-modal-content">
+            <span class="modal-close" id="auth-modal-close">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <p class="auth-subtitle">Elige tu forma de iniciar sesión</p>
+
+            <div class="auth-methods">
+                <button class="auth-btn google-btn" id="btn-google-signin">
+                    <span class="auth-icon">G</span>
+                    Continuar con Google
+                </button>
+                <button class="auth-btn facebook-btn" id="btn-facebook-signin">
+                    <span class="auth-icon">f</span>
+                    Continuar con Facebook
+                </button>
+            </div>
+
+            <div class="auth-divider">o</div>
+
+            <form id="form-auth-email" class="auth-form">
+                <div class="form-group">
+                    <input type="email" id="auth-email" placeholder="Tu correo electrónico" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="auth-password" placeholder="Tu contraseña" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Iniciar Sesión</button>
+            </form>
+
+            <p class="auth-footer">¿No tienes cuenta? <a href="#" id="link-register">Crear una nueva</a></p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script src="/assets/js/carrusel.js"></script>
+    <script src="/assets/js/galeria.js"></script>
+    <script src="/assets/js/presupuesto.js"></script>
+    <script src="/assets/js/formularios.js"></script>
+</body>
+</html>

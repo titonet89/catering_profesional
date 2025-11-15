@@ -1,0 +1,78 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# .gitignore - ARCHIVOS QUE NO SE SUBEN A GITHUB
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Node.js
+node_modules/
+npm-debug.log
+npm-error.log
+yarn-error.log
+.npm
+
+# Archivos de entorno (IMPORTANTE - DATOS PRIVADOS)
+.env
+.env.local
+.env.*.local
+.env.production
+
+# IDE y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.sublime-project
+.sublime-workspace
+*.code-workspace
+
+# Logs
+logs/
+*.log
+
+# Uploads locales (se regeneran en producción)
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Cache y temp
+.cache/
+.temp/
+temp/
+tmp/
+
+# Archivos del sistema
+Thumbs.db
+.AppleDouble
+.LSOverride
+._*
+
+# Credenciales y datos sensibles
+credentials.json
+secrets.json
+.aws/
+.gcloud/
+
+# MongoDB local
+data/
+mongodb/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Build
+dist/
+build/
+
+# Miscellaneous
+.venv/
+venv/
+env/
+ENV/
+
+# yarn
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
