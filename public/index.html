@@ -30,19 +30,7 @@
                 <li><a href="#galeria" class="nav-link">Galería</a></li>
                 <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
-                <li class="auth-nav" id="auth-nav">
-                    <button class="btn-auth" id="btn-login">Iniciar Sesión</button>
-                </li>
             </ul>
-            <div class="auth-menu" id="auth-menu" style="display: none;">
-                <div class="user-profile" id="user-profile" style="display: none;">
-                    <img id="user-avatar" class="user-avatar" alt="Avatar">
-                    <div class="user-info">
-                        <span id="user-name" class="user-name">Usuario</span>
-                        <button class="btn-logout" id="btn-logout">Cerrar Sesión</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </nav>
 
@@ -118,7 +106,9 @@
 
     <!-- SECCIÓN 5: PRESUPUESTO PERSONALIZADO -->
     <section id="presupuesto" class="presupuesto-section">
-        <div class="container">
+        <!-- Fondo animado con gradientes -->
+        <div class="presupuesto-bg-animation"></div>
+        <div class="container presupuesto-relative">
             <h2 class="section-title">Arma Tu Presupuesto</h2>
             <p class="section-subtitle">Crea un presupuesto personalizado eligiendo exactamente lo que necesitas</p>
 
@@ -324,45 +314,8 @@
     </footer>
 
     <!-- MODAL DE AUTENTICACIÓN -->
-    <div id="auth-modal" class="modal" style="display: none;">
-        <div class="modal-content auth-modal-content">
-            <span class="modal-close" id="auth-modal-close">&times;</span>
-            <h2>Iniciar Sesión</h2>
-            <p class="auth-subtitle">Elige tu forma de iniciar sesión</p>
-
-            <!-- GOOGLE Y FACEBOOK DESACTIVADOS POR AHORA
-            <div class="auth-methods">
-                <button class="auth-btn google-btn" id="btn-google-signin">
-                    <span class="auth-icon">G</span>
-                    Continuar con Google
-                </button>
-                <button class="auth-btn facebook-btn" id="btn-facebook-signin">
-                    <span class="auth-icon">f</span>
-                    Continuar con Facebook
-                </button>
-            </div>
-
-            <div class="auth-divider">o</div>
-            -->
-
-            <form id="form-auth-email" class="auth-form">
-                <div class="form-group">
-                    <input type="email" id="auth-email" placeholder="Tu correo electrónico" required>
-                </div>
-                <div class="form-group">
-                    <input type="password" id="auth-password" placeholder="Tu contraseña" required>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Iniciar Sesión</button>
-            </form>
-
-            <p class="auth-footer">¿No tienes cuenta? <a href="#" id="link-register">Crear una nueva</a></p>
-        </div>
-    </div>
-
     <!-- Scripts -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="/assets/js/app.js"></script>
-    <script src="/assets/js/auth.js"></script>
     <script src="/assets/js/carrusel.js"></script>
     <script src="/assets/js/galeria.js"></script>
     <script src="/assets/js/presupuesto.js"></script>

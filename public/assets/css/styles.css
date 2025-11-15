@@ -820,7 +820,44 @@ section {
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 .presupuesto-section {
+    position: relative;
     background: linear-gradient(135deg, var(--color-dark-900) 0%, var(--color-dark-800) 100%);
+    overflow: hidden;
+}
+
+/* Fondo animado con gradientes flotantes */
+.presupuesto-bg-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(201, 162, 39, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(201, 162, 39, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(201, 162, 39, 0.05) 0%, transparent 50%);
+    animation: float 15s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(10px, -10px) scale(1.05);
+    }
+    50% {
+        transform: translate(-15px, 10px) scale(0.95);
+    }
+    75% {
+        transform: translate(10px, 15px) scale(1.02);
+    }
+}
+
+.presupuesto-relative {
+    position: relative;
+    z-index: 2;
 }
 
 .presupuesto-grid {
