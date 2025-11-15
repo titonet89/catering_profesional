@@ -133,21 +133,28 @@ function abrirModal(index) {
     const modal = document.getElementById('galeria-modal');
     const item = galeríaItems[index];
     const modalImg = document.getElementById('modal-img');
+    let modalContent = document.querySelector('.modal-content');
 
     if (item.tipo === 'video') {
-        // Para videos, convertir a imagen o mostrar poster
+        // Para videos, usar video tag
         modalImg.style.display = 'none';
-        const video = document.createElement('video');
-        video.src = item.url;
-        video.controls = true;
-        video.style.maxWidth = '90vw';
-        video.style.maxHeight = '90vh';
-        video.style.objectFit = 'contain';
-        const content = document.querySelector('.modal-content');
-        if (content && content.parentNode) {
-            content.parentNode.replaceChild(video, content);
+        let video = document.getElementById('modal-video');
+        if (!video) {
+            video = document.createElement('video');
+            video.id = 'modal-video';
+            video.controls = true;
+            video.style.maxWidth = '90vw';
+            video.style.maxHeight = '90vh';
+            video.style.objectFit = 'contain';
+            modalContent.appendChild(video);
         }
+        video.src = item.url;
+        video.style.display = 'block';
     } else {
+        // Para imágenes, usar img tag
+        if (document.getElementById('modal-video')) {
+            document.getElementById('modal-video').style.display = 'none';
+        }
         modalImg.style.display = 'block';
         modalImg.src = item.url;
         modalImg.onerror = function() {

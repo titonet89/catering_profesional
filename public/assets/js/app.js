@@ -67,8 +67,16 @@ function inicializarNavegacion() {
         });
     });
 
-    // Actualizar nav activo al scroll
+    // Actualizar nav activo al scroll con throttling para mejor rendimiento
+    let scrollTimeout;
+    let lastScrollTime = 0;
+
     window.addEventListener('scroll', function() {
+        const now = Date.now();
+        // Throttle: máximo cada 100ms para evitar cálculos excesivos
+        if (now - lastScrollTime < 100) return;
+        lastScrollTime = now;
+
         const sections = document.querySelectorAll('section[id]');
         let current = '';
 
@@ -85,7 +93,7 @@ function inicializarNavegacion() {
                 link.classList.add('active');
             }
         });
-    });
+    }, { passive: true });
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
