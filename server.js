@@ -57,7 +57,14 @@ app.use('/uploads', express.static(path.join(__dirname, 'public/uploads'), {
 
 // Página principal
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  const indexPath = path.join(__dirname, 'public/index.html');
+  console.log('📄 Sirviendo index.html desde:', indexPath);
+  res.sendFile(indexPath, (err) => {
+    if (err) {
+      console.error('❌ Error sirviendo index.html:', err);
+      res.status(500).send('Error: No se puede servir index.html');
+    }
+  });
 });
 
 // API para obtener configuración del sitio
