@@ -1661,6 +1661,95 @@ section {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
+   PRESUPUESTO DE ALQUILERES
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.presupuesto-alquileres-section {
+    background: linear-gradient(135deg, #1e2333 0%, #1a1f3a 100%);
+    padding: var(--space-3xl) var(--space-lg);
+}
+
+.alquileres-builder {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(201, 162, 39, 0.15);
+    border-radius: 12px;
+    padding: var(--space-2xl);
+    grid-column: 1;
+}
+
+.alquileres-builder h3 {
+    color: var(--color-gold);
+    margin-bottom: var(--space-lg);
+    font-size: 1.3rem;
+}
+
+.alquileres-resumen {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(201, 162, 39, 0.15);
+    border-radius: 12px;
+    padding: var(--space-2xl);
+    grid-column: 2;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.alquileres-resumen h3 {
+    color: var(--color-gold);
+    margin-bottom: var(--space-lg);
+    font-size: 1.3rem;
+}
+
+#resumen-alq-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.alquiler-item-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    color: var(--color-gray-light);
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(201, 162, 39, 0.1);
+}
+
+.alquiler-item-line strong {
+    color: var(--color-gold);
+}
+
+/* Responsive para presupuesto de alquileres */
+@media (max-width: 1024px) {
+    .alquileres-builder {
+        grid-column: 1;
+    }
+
+    .alquileres-resumen {
+        grid-column: 1;
+        position: relative;
+        top: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .alquileres-builder {
+        padding: var(--space-lg);
+    }
+
+    .alquileres-resumen {
+        padding: var(--space-lg);
+        margin-top: var(--space-lg);
+    }
+
+    .alquileres-builder h3,
+    .alquileres-resumen h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
    CONTACTO
    ═══════════════════════════════════════════════════════════════════════════════ */
 
