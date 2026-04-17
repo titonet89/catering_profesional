@@ -35,7 +35,7 @@ const configSchema = new mongoose.Schema({
   email: { type: String, default: 'contacto@cateringprofesional.com.ar' },
   ubicacion: { type: String, default: 'San Salvador de Jujuy, Jujuy' },
   whatsapp: { type: String, default: '+549388123567' },
-  logo: { type: String, default: '/images/logo.svg' },
+  logo: { type: String, default: '/images/logo.png' },
   facebook: { type: String, default: '#' },
   instagram: { type: String, default: '#' }
 }, { timestamps: true });
