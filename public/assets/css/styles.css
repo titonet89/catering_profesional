@@ -149,7 +149,8 @@ section {
     position: sticky;
     top: 0;
     z-index: 100;
-    padding: var(--space-sm) 0;
+    padding: 0;
+    height: 90px;
 }
 
 .navbar-container {
@@ -160,6 +161,7 @@ section {
     align-items: center;
     justify-content: space-between;
     gap: var(--space-lg);
+    height: 100%;
 }
 
 .navbar-brand {
@@ -175,8 +177,9 @@ section {
 }
 
 .logo {
-    width: 200px;
-    height: 200px;
+    height: 75px;
+    width: auto;
+    max-width: 200px;
     object-fit: contain;
 }
 
