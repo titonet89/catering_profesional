@@ -91,7 +91,8 @@ function calcularPresupuesto() {
     // Obtener valores
     const tipo = document.getElementById('presupuesto-tipo').value || 'Selecciona uno';
     const personas = parseInt(document.getElementById('presupuesto-personas').value) || 50;
-    const menuSeleccionado = document.querySelector('input[name="menu"]:checked').value;
+    const menuChecked = document.querySelector('input[name="menu"]:checked');
+    const menuSeleccionado = menuChecked ? menuChecked.value : 'basico';
     const precioMenu = precios[menuSeleccionado] || 15;
 
     // Calcular subtotal de menú

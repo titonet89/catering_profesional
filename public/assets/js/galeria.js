@@ -170,6 +170,14 @@ function cerrarModal() {
     const modal = document.getElementById('galeria-modal');
     modal.classList.remove('active');
     document.body.style.overflow = 'auto';
+
+    // Liberar el video para evitar memory leak y que siga reproduciéndose en segundo plano
+    const video = document.getElementById('modal-video');
+    if (video) {
+        video.pause();
+        video.src = '';
+        video.load();
+    }
 }
 
 function anteriorModal() {

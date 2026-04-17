@@ -22,11 +22,21 @@ function inicializarCarrusel() {
     if (nextBtn) nextBtn.addEventListener('click', () => mostrarSiguiente());
 
     // Auto-scroll cada 5 segundos
-    setInterval(() => {
-        if (carruselItems.length > 0 && document.hidden === false) {
+    let carruselIntervalId = setInterval(() => {
+        if (carruselItems.length > 0 && !document.hidden) {
             mostrarSiguiente();
         }
     }, 5000);
+
+    // Pausar interval cuando la pestaña está oculta y reanudarlo al volver
+    document.addEventListener('visibilitychange', function() {
+        clearInterval(carruselIntervalId);
+        if (!document.hidden) {
+            carruselIntervalId = setInterval(() => {
+                if (carruselItems.length > 0) mostrarSiguiente();
+            }, 5000);
+        }
+    });
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -134,6 +144,14 @@ function actualizarDots() {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 document.addEventListener('keydown', function(event) {
+    // No interferir con campos de texto
+    const tag = document.activeElement ? document.activeElement.tagName : '';
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+
+    // No interferir cuando el modal de galería está abierto (galeria.js lo maneja)
+    const galeriaModal = document.getElementById('galeria-modal');
+    if (galeriaModal && galeriaModal.classList.contains('active')) return;
+
     if (event.key === 'ArrowLeft') {
         mostrarAnterior();
     } else if (event.key === 'ArrowRight') {

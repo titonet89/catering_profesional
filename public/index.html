@@ -9,6 +9,16 @@
 
     <!-- Estilos consolidados -->
     <link rel="stylesheet" href="/assets/css/styles.css">
+
+    <!-- Open Graph / Redes sociales -->
+    <meta property="og:title" content="Catering Profesional - Eventos Especiales en Jujuy">
+    <meta property="og:description" content="Servicios de catering para bodas, eventos corporativos y celebraciones. Más de 500 eventos realizados con excelencia.">
+    <meta property="og:image" content="/images/logo.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_AR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Catering Profesional - Jujuy">
+    <meta name="twitter:description" content="Catering de lujo para bodas y eventos en Jujuy.">
 </head>
 <body>
     <!-- Navegación -->
@@ -18,7 +28,7 @@
                 <img src="/images/logo.svg" alt="Logo" class="logo" onerror="this.src='/images/placeholder-logo.png'">
                 <span class="company-name" id="empresa-nombre">Catering Profesional</span>
             </div>
-            <button class="navbar-toggle" id="navbar-toggle">
+            <button class="navbar-toggle" id="navbar-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -54,7 +64,7 @@
             <div class="hero-content">
                 <!-- Logo pequeño y elegante -->
                 <div class="hero-logo-small">
-                    <img src="/images/logo.svg" alt="Logo Catering" class="logo-img">
+                    <img src="/images/logo.svg" alt="Catering Profesional - Logo oficial" class="logo-img">
                 </div>
 
                 <!-- Título principal con línea decorativa -->
@@ -847,12 +857,32 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Catering Profesional. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Catering Profesional. Todos los derechos reservados.</p>
             <p>Desarrollado con ❤️ para eventos especiales</p>
         </div>
     </footer>
 
-    <!-- MODAL DE AUTENTICACIÓN -->
+    <!-- Datos estructurados para SEO / Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FoodEstablishment",
+      "name": "Catering Profesional",
+      "description": "Servicios de catering para bodas, eventos corporativos y celebraciones en Jujuy, Argentina",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Salvador de Jujuy",
+        "addressRegion": "Jujuy",
+        "addressCountry": "AR"
+      },
+      "telephone": "+54-9-388-123-4567",
+      "email": "contacto@cateringprofesional.com.ar",
+      "servesCuisine": "Catering",
+      "priceRange": "$$",
+      "openingHours": "Mo-Su 08:00-20:00"
+    }
+    </script>
+
     <!-- Scripts -->
     <script src="/assets/js/app.js"></script>
     <script src="/assets/js/carrusel.js"></script>

@@ -2,6 +2,11 @@
 // FORMULARIOS - CATERING PROFESIONAL
 // ═══════════════════════════════════════════════════════════════════════════════
 
+// Cooldown para evitar envíos repetidos (1 minuto entre envíos)
+const COOLDOWN_MS = 60000;
+let ultimoEnvioContacto = 0;
+let ultimoEnvioComentario = 0;
+
 document.addEventListener('DOMContentLoaded', function() {
     inicializarFormularios();
 });
@@ -29,6 +34,13 @@ function inicializarFormularios() {
 
 async function manejarContacto(e) {
     e.preventDefault();
+
+    const ahora = Date.now();
+    if (ahora - ultimoEnvioContacto < COOLDOWN_MS) {
+        const seg = Math.ceil((COOLDOWN_MS - (ahora - ultimoEnvioContacto)) / 1000);
+        mostrarError(`Por favor esperá ${seg} segundos antes de enviar otro mensaje.`);
+        return;
+    }
 
     const nombre = document.getElementById('contacto-nombre').value.trim();
     const email = document.getElementById('contacto-email').value.trim();
@@ -69,6 +81,7 @@ async function manejarContacto(e) {
         const data = await response.json();
 
         if (response.ok && data.success) {
+            ultimoEnvioContacto = Date.now();
             mostrarExito('¡Solicitud enviada correctamente! Nos contactaremos pronto.');
             document.getElementById('form-contacto').reset();
         } else {
@@ -86,6 +99,13 @@ async function manejarContacto(e) {
 
 async function manejarComentario(e) {
     e.preventDefault();
+
+    const ahora = Date.now();
+    if (ahora - ultimoEnvioComentario < COOLDOWN_MS) {
+        const seg = Math.ceil((COOLDOWN_MS - (ahora - ultimoEnvioComentario)) / 1000);
+        mostrarError(`Por favor esperá ${seg} segundos antes de enviar otro comentario.`);
+        return;
+    }
 
     const nombre = document.getElementById('comentario-nombre').value.trim();
     const email = document.getElementById('comentario-email').value.trim();
@@ -125,6 +145,7 @@ async function manejarComentario(e) {
         const data = await response.json();
 
         if (response.ok && data.success) {
+            ultimoEnvioComentario = Date.now();
             mostrarExito('¡Gracias por tu comentario! Será revisado y publicado pronto.');
             document.getElementById('form-comentario').reset();
             document.getElementById('comentario-calificacion').value = 0;
