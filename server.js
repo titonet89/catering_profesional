@@ -198,8 +198,17 @@ app.get('/api/config', async (req, res) => {
 // Servicios
 app.get('/api/servicios', async (req, res) => {
   try {
-    const servicios = await Service.find({ active: true });
-    res.json(servicios);
+    const servicios = await Service.find({ active: true }).lean();
+    // Compatibilidad con datos del backend viejo (campos en inglés)
+    const mapped = servicios.map(s => ({
+      _id: s._id,
+      nombre: s.nombre || s.title || 'Servicio',
+      descripcion: s.descripcion || s.description || '',
+      precio: s.precio || s.pricePerPerson || s.basePrice || 0,
+      imagen: s.imagen || (s.images && s.images[0]) || '',
+      active: s.active
+    }));
+    res.json(mapped);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

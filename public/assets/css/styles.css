@@ -173,9 +173,10 @@ section {
 }
 
 .logo {
-    width: 45px;
-    height: 45px;
+    width: 80px;
+    height: 80px;
     border-radius: var(--radius-md);
+    object-fit: contain;
 }
 
 .company-name {
@@ -461,8 +462,8 @@ section {
 }
 
 .logo-img {
-    width: 60px;
-    height: 60px;
+    width: 160px;
+    height: 160px;
     object-fit: contain;
     filter: drop-shadow(0 4px 12px rgba(201, 162, 39, 0.2));
 }
